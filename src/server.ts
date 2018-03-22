@@ -1,6 +1,6 @@
 import { ObjectID } from "mongodb";
 import { ODataServer, ODataController, Edm, odata, ODataQuery } from "odata-v4-server";
-import { ProductsController, CategoriesController } from "./controller";
+import { ProductsController, CategoriesController, DireccionesController } from "./controller";
 import connect from "./connect";
 import { Category } from "./model";
 import categories from "./categories";
@@ -10,6 +10,7 @@ import products from "./products";
 @odata.namespace("Northwind")
 @odata.controller(ProductsController, true)
 @odata.controller(CategoriesController, true)
+@odata.controller(DireccionesController,true)
 export class NorthwindServer extends ODataServer {
     @Edm.ActionImport
     async initDb() {

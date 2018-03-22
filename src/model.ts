@@ -42,7 +42,7 @@ export class Category {
         })
     Name: string
 
-    /*@Edm.Collection(Edm.EntityType(Product))
+    /*@Edm.Collection(Edm.EntityType("Product"))
     @Edm.Partner("Category")
     Products: Product[]*/
 }
@@ -131,3 +131,48 @@ export class Product {
     Details: Details
 }
 
+@Edm.Annotate({
+    term: "UI.DisplayName",
+    string: "Direcciones"
+})
+export class Direccion {
+    @Edm.Key
+    @Edm.Computed
+    @Edm.String
+    @Edm.Annotate({
+        term: "UI.DisplayName",
+        string: "id interno de mongodb"
+    },
+        {
+            term: "UI.ControlHint",
+            string: "ReadOnly"
+        })
+    _id: ObjectID
+
+    @Edm.Guid
+    @Edm.Annotate({
+        term: "UI.DisplayName",
+        string: "id relacion crm"
+    })
+    PadreId: string
+
+    @Edm.String
+    Calle: string
+
+    @Edm.String
+    @Edm.Annotate({
+        term: "UI.DisplayName",
+        string: "Colonia"
+    },
+        {
+            term: "UI.ControlHint",
+            string: "ShortText"
+        })
+    Colonia: string
+
+    @Edm.String
+    CP: string
+
+    @Edm.String
+    Municipio: string
+}

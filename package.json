@@ -9,7 +9,7 @@
   "author": "rhino systems",
   "license": "ISC",
   "engines": {
-    "node": "8.9.4"
+    "node": "9.4"
   },
   "dependencies": {
     "express": "^4.16.3",
