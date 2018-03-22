@@ -1,1 +1,1 @@
-# Elastica2
+# Elastica2 - Rhino
