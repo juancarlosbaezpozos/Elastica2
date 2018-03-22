@@ -11,7 +11,7 @@
             "cwd": "${workspaceRoot}",
             "program": "${workspaceRoot}/src/index.ts",
             "outFiles": [
-                "${workspaceRoot}/lib/*.js"
+                "${workspaceRoot}/dist/*.js"
             ]
         },
         {

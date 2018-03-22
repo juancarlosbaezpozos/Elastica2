@@ -3,6 +3,7 @@ import { createQuery } from "odata-v4-mongodb";
 import { ODataController, Edm, odata, ODataQuery } from "odata-v4-server";
 import { Product, Category, Direccion } from "./model";
 import connect from "./connect";
+import { Writable } from "stream";
 
 @odata.type(Product)
 export class ProductsController extends ODataController {
@@ -371,5 +372,21 @@ export class DireccionesController extends ODataController {
         let keyId;
         try { keyId = new ObjectID(key); } catch (err) { keyId = key; }
         return await db.collection("Direcciones").deleteOne({ _id: keyId }).then(result => result.deletedCount);
+    }
+}
+
+export class StreamController extends ODataController {
+    async delay(ms: number): Promise<void> {
+        new Promise(resolve => setTimeout(resolve, ms));
+    }
+
+    @odata.GET
+    async getItems(@odata.stream stream: Writable) {
+        for (let i = 0; i < 10000; i++) {
+            let item = { id: i, value: `item #${i}` };
+            stream.write(item);
+            await this.delay(100);
+        }
+        stream.end();
     }
 }
