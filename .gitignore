@@ -11970,3 +11970,9 @@ bin/products.js
 bin/products-debug.js
 bin/server.js
 bin/server-debug.js
+node_modules/nanomatch/lib/.DS_Store
+.DS_Store
+bin/.DS_Store
+node_modules/braces/lib/.DS_Store
+node_modules/extglob/lib/.DS_Store
+node_modules/micromatch/lib/.DS_Store
